@@ -254,3 +254,9 @@ interface ErrorWithCode extends Error {
 export function isErrorWithCode(error: unknown): error is ErrorWithCode {
   return typeof error === 'object' && error !== null && 'code' in error;
 }
+
+export function isChromiumBased() {
+  return (
+    !!window.chrome && /Chrome|Chromium|Edg|Brave/i.test(navigator.userAgent)
+  );
+}
